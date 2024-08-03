@@ -1,8 +1,8 @@
 import mysql from 'mysql'
 
 export const db = mysql.createConnection({
-    user : "root",
-    host : "localhost",
+    user :  process.env.UserDB "root",
+    host :  process.env.DbHost  "localhost",
     password : process.env.DBpass || "",
     database : "CRUDNode"
 })
