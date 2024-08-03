@@ -105,8 +105,6 @@ export function UpdateUser(req,res) {
             }).status(400)
         }else{
             db.query("UPDATE users SET name = ? , email = ? WHERE (id = ?);",[UserName,UserEmail,id],(err,result)=>{
-                console.log(err)
-                console.log(result)
                 if(err){
                     
                     return res.json({
@@ -149,15 +147,12 @@ export function DeleteUser(req,res) {
             }
             else{
                 db.query("delete from Users where id = ?",[id],(err,result)=>{
-                    if(err){
-                        return err
-                    }
-                    else{
+                    
                         return res.json({
                             msg : "deleted sucess",
                             id : id
                         }).status(200)
-                    }
+                    
                 })
             }
         })
